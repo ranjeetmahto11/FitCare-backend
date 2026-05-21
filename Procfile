@@ -1,0 +1,1 @@
+web: java -jar target/fitcare-1.0.0.jar --spring.profiles.active=prod

@@ -52,10 +52,10 @@ CREATE DATABASE fitcaredb;
 ```
 
 ### Configuration
-Edit `src/main/resources/application.properties`:
+`src/main/resources/application.properties`:
 ```properties
-spring.datasource.username=your_username
-spring.datasource.password=your_password
+spring.datasource.username=root
+spring.datasource.password=****
 ```
 
 ### Run
@@ -78,4 +78,4 @@ src/main/java/com/fitcare/
 
 
 ## Author
-Your Name — [LinkedIn](your-linkedin-url)
+Ranjeet Mahto — [LinkedIn](https://www.linkedin.com/in/ranjeet-mahto11)
