@@ -3,6 +3,13 @@
 A full-stack fitness tracking application
 built with Java Spring Boot and Bootstrap.
 
+## 🔗 Live Demo
+
+- **Frontend:** https://fitcare-app.netlify.app
+- **Backend API:** https://fitcare-backend-production.up.railway.app
+- **Swagger UI:** https://fitcare-backend-production.up.railway.app/swagger-ui.html
+- **GitHub Frontend:** https://github.com/ranjeetmahto11/FitCare-frontend
+
 ## Tech Stack
 
 **Backend**
