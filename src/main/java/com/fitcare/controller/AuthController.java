@@ -16,7 +16,21 @@ public class AuthController {
 
     private final AuthService authService;
 
-    // ── POST /api/auth/register ───────────────
+    @PostMapping("/guest")
+    public ResponseEntity<ApiResponse<
+    AuthDTO.AuthResponse>> guestLogin() {
+
+        AuthDTO.AuthResponse response =
+                authService.guestLogin();
+
+        return ResponseEntity.ok(
+                ApiResponse.success(
+                        "Welcome Guest! "
+                                + "Explore FitCare 👋",
+                        response));
+    }
+
+    // ── POST /api/auth/register
     @PostMapping("/register")
     public ResponseEntity<ApiResponse<
     AuthDTO.AuthResponse>> register(
