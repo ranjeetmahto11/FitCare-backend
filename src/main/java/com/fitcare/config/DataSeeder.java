@@ -5,15 +5,13 @@ import com.fitcare.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation
-        .Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class DataSeeder
-        implements CommandLineRunner {
+public class DataSeeder implements CommandLineRunner {
 
     private final FitnessGoalRepository
             fitnessGoalRepository;
@@ -32,31 +30,24 @@ public class DataSeeder
 
         System.out.println(
                 "🌱 Seeding FitCare data...");
-
         seedGoals();
         seedRoadmaps();
-
         System.out.println(
                 "✅ Seeding complete!");
     }
 
-    // ── Seed Goals ────────────────────────────
     private void seedGoals() {
-
         List<FitnessGoal> goals = List.of(
 
                 FitnessGoal.builder()
-                        .goalType(
-                                User.GoalType.LOSE_FAT)
+                        .goalType(User.GoalType.LOSE_FAT)
                         .goalName("Lose Fat")
                         .goalDescription(
-                                "Burn body fat and "
-                                        + "get lean")
-                        .goalIcon("🔥")
+                                "Burn body fat and get lean")
+                        .goalIcon("fire")
                         .totalWeeks(12)
                         .difficulty(
-                                FitnessGoal.Difficulty
-                                        .MODERATE)
+                                FitnessGoal.Difficulty.MODERATE)
                         .category(
                                 FitnessGoal.GoalCategory
                                         .WEIGHT_LOSS)
@@ -74,11 +65,10 @@ public class DataSeeder
                         .goalName("Gain Weight")
                         .goalDescription(
                                 "Build healthy muscle mass")
-                        .goalIcon("💪")
+                        .goalIcon("lightning")
                         .totalWeeks(12)
                         .difficulty(
-                                FitnessGoal.Difficulty
-                                        .MODERATE)
+                                FitnessGoal.Difficulty.MODERATE)
                         .category(
                                 FitnessGoal.GoalCategory
                                         .MUSCLE_GAIN)
@@ -95,7 +85,7 @@ public class DataSeeder
                         .goalName("Six Pack Abs")
                         .goalDescription(
                                 "Get visible six pack abs")
-                        .goalIcon("🎯")
+                        .goalIcon("target")
                         .totalWeeks(16)
                         .difficulty(
                                 FitnessGoal.Difficulty.HARD)
@@ -116,11 +106,10 @@ public class DataSeeder
                         .goalName("Build Biceps")
                         .goalDescription(
                                 "Grow bigger biceps")
-                        .goalIcon("💪")
+                        .goalIcon("muscle")
                         .totalWeeks(10)
                         .difficulty(
-                                FitnessGoal.Difficulty
-                                        .MODERATE)
+                                FitnessGoal.Difficulty.MODERATE)
                         .category(
                                 FitnessGoal.GoalCategory
                                         .STRENGTH)
@@ -137,7 +126,7 @@ public class DataSeeder
                         .goalName("Build Muscle")
                         .goalDescription(
                                 "Build overall muscle mass")
-                        .goalIcon("🏋️")
+                        .goalIcon("trophy")
                         .totalWeeks(12)
                         .difficulty(
                                 FitnessGoal.Difficulty.HARD)
@@ -159,14 +148,12 @@ public class DataSeeder
                         .goalDescription(
                                 "Build cardio fitness "
                                         + "and stamina")
-                        .goalIcon("🏃")
+                        .goalIcon("heart")
                         .totalWeeks(8)
                         .difficulty(
-                                FitnessGoal.Difficulty
-                                        .MODERATE)
+                                FitnessGoal.Difficulty.MODERATE)
                         .category(
-                                FitnessGoal.GoalCategory
-                                        .CARDIO)
+                                FitnessGoal.GoalCategory.CARDIO)
                         .targetDescription(
                                 "Run 5km non-stop")
                         .expectedResults(
@@ -179,9 +166,8 @@ public class DataSeeder
                                 User.GoalType.GET_FLEXIBLE)
                         .goalName("Get Flexible")
                         .goalDescription(
-                                "Improve flexibility "
-                                        + "with yoga")
-                        .goalIcon("🧘")
+                                "Improve flexibility with yoga")
+                        .goalIcon("yoga")
                         .totalWeeks(8)
                         .difficulty(
                                 FitnessGoal.Difficulty.EASY)
@@ -191,8 +177,7 @@ public class DataSeeder
                         .targetDescription(
                                 "Touch toes and do splits")
                         .expectedResults(
-                                "Full flexibility "
-                                        + "in 8 weeks")
+                                "Full flexibility in 8 weeks")
                         .active(true)
                         .build()
         );
@@ -203,7 +188,6 @@ public class DataSeeder
                         + " goals seeded!");
     }
 
-    // ── Seed Roadmaps ─────────────────────────
     private void seedRoadmaps() {
 
         // ── Lose Fat ──────────────────────────
@@ -211,8 +195,7 @@ public class DataSeeder
                 .goalType(User.GoalType.LOSE_FAT)
                 .title("12 Week Fat Loss Roadmap")
                 .description(
-                        "Structured 12 week plan "
-                                + "to burn fat")
+                        "Structured 12 week fat loss plan")
                 .overview(
                         "Combines cardio, strength "
                                 + "and clean eating")
@@ -232,7 +215,7 @@ public class DataSeeder
                 .startWeek(1).endWeek(4)
                 .focusArea("Habit Building")
                 .milestone("Workout 4x per week")
-                .icon("🏗️")
+                .icon("FOUNDATION")
                 .build();
 
         lf1.getTasks().addAll(List.of(
@@ -250,8 +233,7 @@ public class DataSeeder
                         .taskName("Clean Your Diet")
                         .taskDescription(
                                 "Remove junk food and sugar")
-                        .taskType(
-                                PhaseTask.TaskType.DIET)
+                        .taskType(PhaseTask.TaskType.DIET)
                         .orderIndex(2)
                         .required(true).build(),
                 PhaseTask.builder()
@@ -259,8 +241,7 @@ public class DataSeeder
                         .taskName("Drink Water")
                         .taskDescription(
                                 "3 liters of water daily")
-                        .taskType(
-                                PhaseTask.TaskType.HABIT)
+                        .taskType(PhaseTask.TaskType.HABIT)
                         .orderIndex(3)
                         .required(true).build()
         ));
@@ -275,7 +256,7 @@ public class DataSeeder
                 .startWeek(5).endWeek(8)
                 .focusArea("Fat Burning")
                 .milestone("Lose 2-3kg")
-                .icon("🔥")
+                .icon("ACCELERATION")
                 .build();
 
         lf2.getTasks().addAll(List.of(
@@ -293,8 +274,7 @@ public class DataSeeder
                         .taskName("High Protein Diet")
                         .taskDescription(
                                 "2g protein per kg daily")
-                        .taskType(
-                                PhaseTask.TaskType.DIET)
+                        .taskType(PhaseTask.TaskType.DIET)
                         .orderIndex(2)
                         .required(true).build()
         ));
@@ -308,7 +288,7 @@ public class DataSeeder
                 .startWeek(9).endWeek(12)
                 .focusArea("Body Definition")
                 .milestone("Reach target weight")
-                .icon("🎯")
+                .icon("DEFINITION")
                 .build();
 
         lf3.getTasks().addAll(List.of(
@@ -326,8 +306,7 @@ public class DataSeeder
                         .taskName("Strict Diet")
                         .taskDescription(
                                 "Zero cheat meals")
-                        .taskType(
-                                PhaseTask.TaskType.DIET)
+                        .taskType(PhaseTask.TaskType.DIET)
                         .orderIndex(2)
                         .required(true).build()
         ));
@@ -338,12 +317,10 @@ public class DataSeeder
 
         // ── Six Pack ──────────────────────────
         Roadmap sixPack = Roadmap.builder()
-                .goalType(
-                        User.GoalType.SIX_PACK_ABS)
+                .goalType(User.GoalType.SIX_PACK_ABS)
                 .title("16 Week Six Pack Roadmap")
                 .description(
-                        "Get visible six pack "
-                                + "in 16 weeks")
+                        "Get visible six pack in 16 weeks")
                 .overview(
                         "Core training, fat loss "
                                 + "and strict diet")
@@ -362,7 +339,7 @@ public class DataSeeder
                 .startWeek(1).endWeek(6)
                 .focusArea("Fat Loss")
                 .milestone("Reach 15% body fat")
-                .icon("🔥")
+                .icon("FATBURN")
                 .build();
 
         sp1.getTasks().addAll(List.of(
@@ -380,8 +357,7 @@ public class DataSeeder
                         .taskName("Zero Sugar")
                         .taskDescription(
                                 "Eliminate all sugar")
-                        .taskType(
-                                PhaseTask.TaskType.DIET)
+                        .taskType(PhaseTask.TaskType.DIET)
                         .orderIndex(2)
                         .required(true).build()
         ));
@@ -395,7 +371,7 @@ public class DataSeeder
                 .startWeek(7).endWeek(12)
                 .focusArea("Core Strength")
                 .milestone("5 min plank hold")
-                .icon("⚡")
+                .icon("CORE")
                 .build();
 
         sp2.getTasks().addAll(List.of(
@@ -419,7 +395,7 @@ public class DataSeeder
                 .startWeek(13).endWeek(16)
                 .focusArea("Ab Definition")
                 .milestone("Visible six pack!")
-                .icon("🎯")
+                .icon("DEFINITION")
                 .build();
 
         sp3.getTasks().addAll(List.of(
@@ -460,9 +436,9 @@ public class DataSeeder
                 .phaseDescription(
                         "Learn form and build habit")
                 .startWeek(1).endWeek(4)
-                .focusArea("Form & Habit")
+                .focusArea("Form and Habit")
                 .milestone("Master basic lifts")
-                .icon("🏗️")
+                .icon("FOUNDATION")
                 .build();
 
         gw1.getTasks().addAll(List.of(
@@ -480,8 +456,7 @@ public class DataSeeder
                         .taskName("Calorie Surplus")
                         .taskDescription(
                                 "Eat 300-500 cal above TDEE")
-                        .taskType(
-                                PhaseTask.TaskType.DIET)
+                        .taskType(PhaseTask.TaskType.DIET)
                         .orderIndex(2)
                         .required(true).build()
         ));
@@ -495,7 +470,7 @@ public class DataSeeder
                 .startWeek(5).endWeek(8)
                 .focusArea("Muscle Growth")
                 .milestone("Increase lifts by 10-20%")
-                .icon("📈")
+                .icon("GROWTH")
                 .build();
 
         gw2.getTasks().addAll(List.of(
@@ -519,7 +494,7 @@ public class DataSeeder
                 .startWeek(9).endWeek(12)
                 .focusArea("Peak Performance")
                 .milestone("Reach target weight")
-                .icon("🏆")
+                .icon("PEAK")
                 .build();
 
         gw3.getTasks().addAll(List.of(
